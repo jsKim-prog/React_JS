@@ -38,6 +38,8 @@ dependencies {
 
 	//ModelMapper 추가
 	implementation 'org.modelmapper:modelmapper:3.1.1'
+	//섬네일 추가
+	implementation 'net.coobird:thumbnailator:0.4.19'
 }
 
 tasks.named('test') {
