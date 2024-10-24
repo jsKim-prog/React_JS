@@ -14,6 +14,7 @@ import org.zerock.mallapi.dto.TodoDTO;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.IntStream;
 
 @SpringBootTest
 @Log4j2
@@ -41,4 +42,6 @@ public class ProductServiceTests {
         PageResponseDTO<ProductDTO> result = productService.getList(pageRequestDTO);
         result.getDtoList().forEach(dto->log.info(dto));
     }
+
+
 }

@@ -14,12 +14,12 @@ public class CustomServletConfig implements WebMvcConfigurer {
         // controller.formatter.LocalDateFormatter
     }
 
-    @Override //CORS 설정
+   /* @Override //CORS 설정 -->시큐리티 사용으로 CustomSecurityConfig로 이동
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedOrigins("*")
                 .allowedMethods("HEAD", "GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .maxAge(300)
                 .allowedHeaders("Authorization", "Cache-Control", "Content-Type");
-    }
+    } */
 }

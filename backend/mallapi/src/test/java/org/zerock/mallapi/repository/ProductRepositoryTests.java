@@ -18,6 +18,7 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 
 @SpringBootTest
 @Log4j2
@@ -72,6 +73,14 @@ public class ProductRepositoryTests {
         Page<Object[]> result = productRepository.selectList(pageable);
         result.getContent().forEach(arr -> log.info(Arrays.toString(arr)));
         //[Product(pno=6, pname=상품명6, price=600, pdesc=상품설명6, delFlag=false, imageList=[ProductImage(fileName=7af1b10f-e4d1-4378-8a66-03cbedc91c18_image1.jpg, ord=0), ProductImage(fileName=fe550a92-3667-421b-91f5-c32b06df53bb_image2.jpg, ord=1)]), ProductImage(fileName=7af1b10f-e4d1-4378-8a66-03cbedc91c18_image1.jpg, ord=0)]
+    }
+
+    //더미데이터 삭제
+    @Test
+    public void testDummyDel(){
+        LongStream.rangeClosed(1L,10L).forEach(pno->{
+            productRepository.deleteById(pno);
+        });
     }
 
 }
