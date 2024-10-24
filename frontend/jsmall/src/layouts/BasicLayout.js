@@ -17,4 +17,4 @@ const BasicLayout = ({children}) =>{
         </>
     );
 }
-export default BasicLayout;
+export default BasicLayout
