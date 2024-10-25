@@ -4,6 +4,7 @@ import { getList } from "../../api/productsApi";
 import FetchingModal from "../common/FetchingModal";
 import PageComponent from "../common/PageComponent";
 import { API_SERVER_HOST } from "../../api/todoApi";
+import useCustomLogin from "../../hooks/useCustomLogin";
 
 const initState = { //PageResponseDTO
     dtoList:[],
@@ -20,18 +21,19 @@ const initState = { //PageResponseDTO
 
 const host = API_SERVER_HOST //file 경로문제로 필요
 
+
 const ListComponent = () => {
     const {page, size, refresh, moveToList, moveToRead} = useCustomMove()
 const [serverData, setServerData] = useState(initState)
 const [fetching, setFetching] = useState(false) //진행모달
-
+const {exceptionHandle} = useCustomLogin()
 useEffect(()=>{
     setFetching(true)
     getList({page, size}).then(data =>{
         console.log(data)
         setServerData(data)
         setFetching(false)
-    })
+    }).catch(err=> exceptionHandle(err))
 },[page, size, refresh])
 
     return(
