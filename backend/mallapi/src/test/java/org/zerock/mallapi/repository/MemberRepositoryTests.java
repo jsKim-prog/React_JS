@@ -67,6 +67,14 @@ public class MemberRepositoryTests {
 
     }
 
+    //회원삭제
+    @Test
+    public void delMemTest(){
+        String email = "sarony@naver.com";
+        memberRepository.deleteById(email);
+
+    }
+
 
 
 }
